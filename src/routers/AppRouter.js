@@ -15,7 +15,7 @@ const history = createHistory();
 
 const AppRouter = () => (
   <Router history={history}>
-    <div>
+    <React.Fragment>
       <Header />
       <Switch>
           <Route exact path="/" component={MainPage} />
@@ -28,7 +28,7 @@ const AppRouter = () => (
           <Route exact path="/seventhPage" component={seventhPage} />
           <Route render={() => (<h1> 404 ERROR </h1>)} />
       </Switch>
-    </div>
+    </React.Fragment>
   </Router>
 );
 
