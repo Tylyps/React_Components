@@ -13,7 +13,6 @@ class MainPage extends Component {
 
     onAdd = () => {
         const { valuePlus } = this.state;
-        console.log(typeof valuePlus)
         this.props.add(valuePlus);
     }
 

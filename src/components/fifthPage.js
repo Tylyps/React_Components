@@ -1,30 +1,54 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { exampleAction, exampleActionTwo } from '../actions/example'
 
 class fifthPage extends Component {
-    state = {
-        test: true,
-    };
+    constructor(props) {
+        super(props);
+        this.textInput = React.createRef();
+    }
 
+    focusTextInput = () => this.textInput.current.focus();
 
     render() {
 
         return (
             <div className="center-component">
+                <p>
+                    <a
+                        href='https://reactjs.org/docs/refs-and-the-dom.html'
+                        target='_blank'
+                    >Source</a> of the example and theory
+                </p>
                 fifthPage
+                <div style={{ marginBottom: '100px' }}>
+                    <input
+                        type="text"
+                        ref={this.textInput}
+                    />
+                    <input
+                        type="text"
+                        value=" <- Focus the text input"
+                        onClick={this.focusTextInput}
+                        onChange={this.focusTextInput}
+                    />
+                </div>
+                <div>
+                    <span
+                        aria-hidden
+                        onClick={() => this.fileInput.click()}
+                        style={{ cursor: 'pointer' }}
+                    >
+                        Add media
+                    </span>
+
+                    <input
+                        type="file"
+                        style={{width: '400px', marginLeft: '100px'}}
+                        ref={(fileInput) => { this.fileInput = fileInput }}
+                    />
+                </div>
             </div>
         );
     };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-    add: value => dispatch(exampleAction(value)),
-    minus: value => dispatch(exampleActionTwo(value))
-});
-
-const mapStateToProps = (state) => ({
-    counter: state.example.counter,
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(fifthPage);
+export default fifthPage;

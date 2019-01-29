@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { exampleAction, exampleActionTwo } from '../actions/example';
+
 import CAT from '../images/cat.png';
 import MOUSE from '../images/mouse.png';
 
@@ -70,7 +69,12 @@ class MouseTracker extends Component {
         return (
         <div style={{ position: 'relative', height: '100%' }}>
             <h1>Move the mouse around! -> Function as a child</h1>
-            <p><a href='https://reactjs.org/docs/render-props.html'>Source</a> of the example and theory</p>
+            <p>
+                <a
+                    href='https://reactjs.org/docs/render-props.html'
+                    target='_blank'
+                >Source</a> of the example and theory
+            </p>
             <button onClick={this.toggleAnimal}>Toggle Animal</button>
             <Mouse>
             {mouse => (
@@ -84,13 +88,4 @@ class MouseTracker extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    add: value => dispatch(exampleAction(value)),
-    minus: value => dispatch(exampleActionTwo(value))
-});
-
-const mapStateToProps = (state) => ({
-    counter: state.example.counter,
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MouseTracker);
+export default MouseTracker;
