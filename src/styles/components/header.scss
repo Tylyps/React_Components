@@ -7,6 +7,37 @@ header {
   align-items: center;
   a {
     height: 20px;
-    padding: 15px 0;
+    padding: 15px 10px;
+    border: 0px solid;
+    border-color: black;
+    border-radius: 10px;
+    transition: 1s;
+    &:hover {
+      border-width: 20px;
+    }
+    &.link1:hover {
+      border-color: red;
+    }
+    &.link2:hover {
+      border-color: orange;
+    }
+    &.link3:hover {
+      border-color: yellow;
+    }
+    &.link4:hover {
+      border-color: green;
+    }
+    &.link5:hover {
+      border-color: lightgreen;
+    }
+    &.link6:hover {
+      border-color: blue;
+    }
+    &.link7:hover {
+      border-color: lightblue;
+    }
+    &.link8:hover {
+      border-color: purple;
+    }
   }
 }
