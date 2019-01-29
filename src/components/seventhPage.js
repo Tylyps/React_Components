@@ -1,30 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { exampleAction, exampleActionTwo } from '../actions/example'
+import { selectNumberAfterAdd, selectNumberAfterSubtract } from '../selectors/selectors';
+import FourthPage from './fourthPage';
 
-class seventhPage extends Component {
-    state = {
-        test: true,
-    };
-
-
-    render() {
-
-        return (
-            <div className="center-component">
-                seventhPage
-            </div>
-        );
-    };
-};
-
-const mapDispatchToProps = (dispatch) => ({
-    add: value => dispatch(exampleAction(value)),
-    minus: value => dispatch(exampleActionTwo(value))
-});
+const seventhPage = props => (
+    <div className="center-component">
+        <div>
+            Fourth Page
+            <FourthPage />
+        </div>
+        <div>
+            Selectors: <br />
+            <p>
+                Number after add last added number: {props.futureAddNumber}
+            </p>
+            <p>
+                Number after subtract last subtract number: {props.futureSubstractNumber}
+            </p>
+        </div>
+    </div>
+);
 
 const mapStateToProps = (state) => ({
-    counter: state.example.counter,
+    futureAddNumber: selectNumberAfterAdd(state),
+    futureSubstractNumber: selectNumberAfterSubtract(state),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(seventhPage);
+export default connect(mapStateToProps)(seventhPage);
